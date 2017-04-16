@@ -22,7 +22,7 @@ class DNA (file:String){
     val A = letterCount("A", seq) // counts number of adenine bases 
     val C = letterCount("C", seq) // counts number of cytosine bases 
     val G = letterCount("G", seq) // counts number of guanine bases 
-    val T = letterCount("T", seq) // counts number f thymine bases 
+    val T = letterCount("T", seq) // counts number of thymine bases 
     return Vector(A, C, G, T)
   }
 
