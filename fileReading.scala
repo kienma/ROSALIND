@@ -62,5 +62,18 @@ class fileReading {
     }
     return assembly(L1)
   }
-    
+  // reads a codon table document
+  def codonTable_read(file:String):Vector[String]={
+    val raw = scala.io.Source.fromFile(file).mkString
+    val p1 = raw.replace('\n', ' ')
+    val p2 = p1.split(' ')
+    var L1:Vector[String]=Vector()
+    for (i <- 0 to p2.length-1){
+      val line = p2(i)
+      L1 = L1 :+ line
+    }
+    val L2 = L1.filter(i => i != "")
+    return L2
+  }
+  
 }
