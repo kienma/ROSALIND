@@ -75,8 +75,8 @@ class fileReading {
     val L2 = L1.filter(i => i != "")
     return L2
   }
-  // reads a mass correspondence table ... designed for amino acid monoisotopic mass based on IUPAC symbols 
-  def AAMass(file:String):Vector[String]={
+  // general importing function 
+  def generalImport(file:String):Vector[String]={
     val raw = scala.io.Source.fromFile(file).mkString
     val p1 = raw.replace('\n', ' ')
     val p2 = p1.split(' ')
