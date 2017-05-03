@@ -51,17 +51,6 @@ class fileReading {
     return assemble
   }
   
-  // FASTA file reader ... currently only works for two line fragments
-  def FASTA_read(file:String):Vector[String]={
-    val raw = scala.io.Source.fromFile(file).mkString
-    val RawLines = raw.split('\n')
-    var L1:Vector[String] = Vector()
-    for (i <- 0 to RawLines.length-1){
-      val processed1 = RawLines(i).filter(i => i != '\n') // first processing processed line, without the indent 
-      L1 = L1 :+ processed1
-    }
-    return assembly(L1)
-  }
   // reads a codon table document
   def codonTable_read(file:String):Vector[String]={
     val raw = scala.io.Source.fromFile(file).mkString
@@ -88,5 +77,10 @@ class fileReading {
     val L2 = L1.filter(i => i != "")
     return L2
   }
-  
+  // reading FASTA file
+  def FASTA_read(file:String):Vector[String]={
+    val parse = generalImport(file)
+    val assemble = assembly(parse)
+    return assemble
+  }
 }
