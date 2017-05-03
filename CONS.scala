@@ -48,7 +48,6 @@ class CONS(FASTA:Vector[String]) {
   // alignment matrix in Rosalind answer format
   def alignment_matrix(characters:Vector[Char]):String={
     var matrix = consensus_sequence(characters)++"\n"
-    println(matrix)
     val counts = charCount(characters)
     val L1 = characters.length-1 // number of characters in lexicon
     val L2 = S(0).length-1 // how long is each sequence
