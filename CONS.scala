@@ -49,7 +49,7 @@ class CONS(FASTA:Vector[String]) {
   def alignment_matrix(characters:Vector[Char]):String={
     var matrix = consensus_sequence(characters)++"\n"
     val counts = charCount(characters)
-    val L1 = characters.length-1 // number of characters in lexicon
+    val L1 = characters.length-1 // number of characters in alphabet
     val L2 = S(0).length-1 // how long is each sequence
     for (i <- 0 to L1){
       matrix += characters(i).toString++": " // character whose count is being displayed
