@@ -83,4 +83,13 @@ class fileReading {
     val assemble = assembly(parse)
     return assemble
   }
+  // gets uniprot info and sequence from uniprot ID 
+  def uniprot(ID:String):Vector[String]={
+    val URL:String = "http://www.uniprot.org/uniprot/"++ID++".fasta"
+    val FASTA = Source.fromURL(URL).mkString // FASTA file from uniprot link
+    val i:Int = FASTA.indexOf('\n') // index 
+    val uniprotID = FASTA.substring(0,i).filter(x => x != '\n') // uniprot ID 
+    val uniprotSEQ = FASTA.substring(i,FASTA.length).filter(x => x!= '\n') // uniprot sequence
+    return Vector(uniprotID, uniprotSEQ)
+  }
 }
