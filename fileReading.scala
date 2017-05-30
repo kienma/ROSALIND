@@ -64,6 +64,7 @@ class fileReading {
     val L2 = L1.filter(i => i != "")
     return L2
   }
+  
   // general importing function 
   def generalImport(file:String):Vector[String]={
     val raw = scala.io.Source.fromFile(file).mkString
@@ -77,12 +78,14 @@ class fileReading {
     val L2 = L1.filter(i => i != "")
     return L2
   }
+  
   // reading FASTA file
   def FASTA_read(file:String):Vector[String]={
     val parse = generalImport(file)
     val assemble = assembly(parse)
     return assemble
   }
+  
   // gets uniprot info and sequence from uniprot ID 
   def uniprot(ID:String):Vector[String]={
     val URL:String = "http://www.uniprot.org/uniprot/"++ID++".fasta"
@@ -92,4 +95,5 @@ class fileReading {
     val uniprotSEQ = FASTA.substring(i,FASTA.length).filter(x => x!= '\n') // uniprot sequence
     return Vector(uniprotID, uniprotSEQ)
   }
+  
 }
